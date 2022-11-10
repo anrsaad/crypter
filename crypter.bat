@@ -1,5 +1,5 @@
 @echo off
-
+mode con: cols=65 lines=15
 ::decission session for user
 :home
 cls
