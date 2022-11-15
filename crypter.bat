@@ -1,40 +1,83 @@
+::[Bat To Exe Converter]
+::
+::YAwzoRdxOk+EWAjk
+::fBw5plQjdCyDJGyX8VAjFBpaXheDPW+GIrAP4/z0/9aEsFQNQOctRK7T2/m9L+YHp2z2ephg+3tU1eIeAxVVfxzmQw4noiMR+0uJM4mVsACB
+::YAwzuBVtJxjWCl3EqQJgSA==
+::ZR4luwNxJguZRRnk
+::Yhs/ulQjdF+5
+::cxAkpRVqdFKZSDk=
+::cBs/ulQjdF+5
+::ZR41oxFsdFKZSDk=
+::eBoioBt6dFKZSDk=
+::cRo6pxp7LAbNWATEpCI=
+::egkzugNsPRvcWATEpCI=
+::dAsiuh18IRvcCxnZtBJQ
+::cRYluBh/LU+EWAnk
+::YxY4rhs+aU+JeA==
+::cxY6rQJ7JhzQF1fEqQJQ
+::ZQ05rAF9IBncCkqN+0xwdVs0
+::ZQ05rAF9IAHYFVzEqQJQ
+::eg0/rx1wNQPfEVWB+kM9LVsJDGQ=
+::fBEirQZwNQPfEVWB+kM9LVsJDGQ=
+::cRolqwZ3JBvQF1fEqQJQ
+::dhA7uBVwLU+EWDk=
+::YQ03rBFzNR3SWATElA==
+::dhAmsQZ3MwfNWATElA==
+::ZQ0/vhVqMQ3MEVWAtB9wSA==
+::Zg8zqx1/OA3MEVWAtB9wSA==
+::dhA7pRFwIByZRRnk
+::Zh4grVQjdCyDJGyX8VAjFBpaXheDPW+GIrAP4/z0/9aEsFQNQOctRIzJw6SaJfJd713hFQ==
+::YB416Ek+ZW8=
+::
+::
+::978f952a14a936cc963da21a135fa983
 @echo off
+:: Program name : Crypter
+:: create by : Saad Anouar
+
 mode con: cols=65 lines=15
 ::decission session for user
 :home
 cls
 echo. && color 9
-echo   ^_^_ ^_^_^| ^_ \  ^_^_^|   \ ^|   ^_^_^| ^_ ^_^|   ^_^_^|   ^_^_^| ^_^_ ^_^_^| ^_ \  ^_ \
-echo      ^|     /  ^_^|   .  ^| \^_^_ \   ^|  \^_^_ \ \^_^_ \    ^|  (   ^|   / 
-echo     ^_^|  ^_^|^_\ ^_^_^_^| ^_^|\^_^| ^_^_^_^_/ ^_^_^_^| ^_^_^_^_/ ^_^_^_^_/   ^_^| \^_^_^_/ ^_^|^_\ 
-echo.
-echo. & echo. & echo. & echo. & echo.
-echo Did you want to :
+echo. && echo.
+echo            ___^|                      ^|               
+echo           ^|       __^|  ^|   ^|  __ \   __^|   _ \   __^| 
+echo        ^|      ^|     ^|   ^|  ^|   ^|  ^|     __/  ^|    
+echo          \____^| _^|    \__, ^|  .__/  \__^| \___^| _^|    
+echo                       ____/  _^|                             
+echo. & echo. & echo.
+%windir%\system32\WindowsPowerShell\v1.0\Powershell.exe write-host -foregroundcolor red Did you want to :
 echo                        Crypte [C], Decrypt [D] ?
 echo                               [x] exit
 echo.
 set /p answer=
 if %answer% ==c goto cryptefile
 if %answer% ==d goto decryptfile
-if %answer% ==x msg * THANKS FOR USING TRENSISSTOR, WELCOME BACK AGAIN DEAR : \\ %username% && exit
+if %answer% ==x msg * THANKS FOR USING TRENSISSTOR, WELCOME BACK AGAIN DEAR : \\  %username% && exit
 goto home
 
 :: Encrypting file using bas64 
 :cryptefile
 cls
 
-echo                              _
-echo	                	^| ^|
-echo	              __ 	^| ^|  __
-echo                \ \	^| ^| / /
-echo                 \ \^| ^|/ /
-echo                  \       /
-echo                   \     /         __
-echo       ^|  ^|     	\   /	    ^|  ^|
-echo       ^|  ^|_____________________^|  ^|
-echo       ^|___________________________^|
+echo                             _
+echo                            ^| ^|
+echo                        __  ^| ^|  __
+echo                        \ \ ^| ^| / /
+echo                         \ \^| ^|/ /
+echo                          \     /
+echo                           \   /       
+echo               ^|  ^|         \ /         ^|  ^|
+echo               ^|  ^|_____________________^|  ^|
+echo               ^|___________________________^|
 echo.
-set /p file="Drop your file to ENCRYPTE here "
+%windir%\system32\WindowsPowerShell\v1.0\Powershell.exe write-host -foregroundcolor red Drop your file here for Encrypting :
+echo or (Click [b] to go back home)
+echo.
+set /p file="    ---->   "
+if %file% ==b goto home
+if not exist %file% goto cryptefile
 set /p Encryptfilename="Encrypted File name :   "
 set destination="C:\Users\%username%\Desktop\%Encryptfilename%.txt"
 certutil -encode %file% %destination%
@@ -45,6 +88,7 @@ echo.
 echo Program Written by : Saad Anouar >>%destination%
 echo Be sure to download the program from this link: https://github.com/anrsaad/Crypter >>%destination%
 echo file Created AT %date% in %time% >>%destination%
+echo Please be sure to not write or modify this file to not make damage to decrypting file >>%destination%
 for %%x in (%file:\= %) do set last=%%x
 echo %last% >>%destination%
 cls
@@ -54,8 +98,24 @@ goto home
 :: DEcrypte session: get the extention of file from inside file and decrypte the file
 :decryptfile
 cls
-set /p file2="DRop file to Dencrypte: "
 
+echo                             _
+echo                            ^| ^|
+echo                        __  ^| ^|  __
+echo                        \ \ ^| ^| / /
+echo                         \ \^| ^|/ /
+echo                          \     /
+echo                           \   /       
+echo               ^|  ^|         \ /         ^|  ^|
+echo               ^|  ^|_____________________^|  ^|
+echo               ^|___________________________^|
+echo.
+%windir%\system32\WindowsPowerShell\v1.0\Powershell.exe write-host -foregroundcolor red Drop file here to Dencrypte:
+echo or (Click [b] to go back home) 
+set /p file2=" ---->    "
+echo.
+if %file2% ==b goto home 
+if not exist %file2% echo this file doesnt exist or you typing fail && TIMEOUT /T 3 >nul && cls && goto decryptfile
 :: check if the file is a base64 crypte or not 
 find /c "-----BEGIN CERTIFICATE-----" %file2% && (echo found && goto start) || (echo not found && goto check)
 
